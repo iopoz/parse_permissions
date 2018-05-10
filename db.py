@@ -3,8 +3,8 @@ from errno import errorcode
 import MySQLdb
 
 db_host = "127.0.0.1"
-db_user = "root"
-db_password = "aA!23456"
+db_user = "your_name"
+db_password = "your_pass"
 db_name = "permissions"
 
 TABLES = {}
