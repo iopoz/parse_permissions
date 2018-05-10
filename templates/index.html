@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% block footer %}
+  <script>
+    $(function() {
+      $('#search').on('click', function(){
+        var app_id = document.getElementById('app_id').value;
+
+        var radios = document.getElementsByName('language');
+
+        for (var i = 0, length = radios.length; i < length; i++)
+        {
+         if (radios[i].checked)
+         {
+          var hl = i;
+          break;
+         }
+        }
+        if (app_id != null) {
+            window.location = "/app_perm/" + app_id + "/" + hl;
+        }
+      });
+    });
+  </script>
+{% endblock %}

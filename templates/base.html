@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <title>Application Permissions list</title>
+    {% block libs %}
+
+        <link href="../static/semantic/dist/semantic.min.css" rel="stylesheet">
+        <link href="../static/custom.css" rel="stylesheet">
+        <script
+          src="https://code.jquery.com/jquery-3.3.1.min.js"
+          integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+          crossorigin="anonymous"></script>
+        <script src="../static/semantic/dist/semantic.min.js"></script>
+
+    {% endblock %}
+</head>
+<body>
+
+<div class="ui text container">
+    <h1 class="ui dividing header"> Application Permissions</h1>
+</div>
+
+<div class="ui text container">
+    <div class="ui one column grid">
+
+        <div class="ui action input">
+          <input type="text" placeholder="Search..." id="app_id">
+          <button class="ui icon button" id="search">
+            <i class="search icon"></i>
+          </button>
+        </div>
+
+        <div class="ui form">
+          <div class="inline fields">
+            <div class="field">
+              <div class="ui radio checkbox">
+                <input type="radio" name="language" checked="checked">
+                <label>en</label>
+              </div>
+            </div>
+            <div class="field">
+              <div class="ui radio checkbox">
+                <input type="radio" name="language">
+                <label>ru</label>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div id="main" style="width: 80%">
+          {% block content %}
+          {% endblock %}
+        </div>
+
+    </div>
+</div>
+
+
+{% block footer %}
+  <script>
+    $(function() {});
+  </script>
+{% endblock %}
+</body>
+</html>

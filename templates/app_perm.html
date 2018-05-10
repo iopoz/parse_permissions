@@ -1,0 +1,71 @@
+{% extends "base.html" %}
+{% block libs %}
+
+    <link href="../../static/semantic/dist/semantic.min.css" rel="stylesheet">
+    <link href="../../static/custom.css" rel="stylesheet">
+    <script
+            src="https://code.jquery.com/jquery-3.3.1.min.js"
+            integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+            crossorigin="anonymous"></script>
+    <script src="../../static/semantic/dist/semantic.min.js"></script>
+
+{% endblock %}
+{% block content %}
+    {% if err %}
+    <div class="ui text container negative message" style="margin-top: 20%; width: 100%; text-align: center">
+      <div class="header">
+        {{ res['err'] }}
+      </div>
+    </div>
+
+    {% else %}
+    <h3>Permissions</h3>
+    <div class="ui form">
+        <div class="ui blue segment">
+            <div class="field results">
+
+
+                {% for item in res %}
+                    <div class="ui grid">
+                        <div class="two wide column">
+                            <img width="25px" height="25px" src={{ res[item]['img'] }}>
+                        </div>
+                        <div class="twelve wide column">
+                            <h3 class="header">{{ item }}</h3>
+                            <ul>
+                                {% for per in res[item]['perm'] %}
+                                    <li>{{ per }}</li>
+                                {% endfor %}
+                            </ul>
+                        </div>
+                    </div>
+                {% endfor %}
+
+
+            </div>
+        </div>
+    </div>
+    {% endif %}
+{% endblock %}
+
+{% block footer %}
+    <script>
+        $(function () {
+            $('#search').on('click', function () {
+                var app_id = document.getElementById('app_id').value;
+
+                var radios = document.getElementsByName('language');
+
+                for (var i = 0, length = radios.length; i < length; i++) {
+                    if (radios[i].checked) {
+                        var hl = i;
+                        break;
+                    }
+                }
+                if (app_id != null) {
+                    window.location = "/app_perm/" + app_id + "/" + hl;
+                }
+            });
+        });
+    </script>
+{% endblock %}

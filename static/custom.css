@@ -1,0 +1,45 @@
+/*<style type="text/css">*/
+
+/* Some basic formatting */
+.container {
+    padding: 1em 0em;
+}
+
+.ui.dividing.header,
+.first {
+    margin-top: 5em;
+}
+
+.ui.dividing.header:first-child {
+    margin-top: 0em;
+}
+
+.input.action {
+    width: 80%;
+}
+
+.results.field {
+    width: 100%;
+}
+
+/* Shows content box (not negative margins) */
+.grid {
+    position: relative;
+}
+
+
+.ui.divided.grid:before,
+.celled.grid:before {
+    display: none;
+}
+
+.ui.aligned .column:after {
+    display: none !important;
+}
+
+.grid .column:not(.row):not(.grid):after {
+    display: block;
+    min-height: 50px;
+}
+
+/*</style>*/
